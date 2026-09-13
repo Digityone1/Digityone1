@@ -548,7 +548,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         const response =
                             await fetch(
-                            'https://ibkube-stripe-1.vercel.app/api/create-checkout-session',
+                            'https://ibkube-stripe-ten.vercel.app/api/create-checkout-session',
                                 {
                                     method: 'POST',
 
