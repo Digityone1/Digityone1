@@ -1,68 +1,21 @@
 const Stripe = require('stripe');
 
-// =====================================================
-// STRIPE
-// =====================================================
-
-if (!process.env.STRIPE_SECRET_KEY) {
-    console.error('STRIPE_SECRET_KEY não está definida no Vercel');
-}
-
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
-
-
-// =====================================================
-// API
-// =====================================================
 
 module.exports = async (req, res) => {
 
-    // =================================================
-    // CORS
-    // =================================================
-
-    const allowedOrigins = [
-        'https://digityone1.github.io',
-        'https://digityone1.vercel.app'
-    ];
-
-    const origin = req.headers.origin;
-
-    if (allowedOrigins.includes(origin)) {
-        res.setHeader(
-            'Access-Control-Allow-Origin',
-            origin
-        );
-    }
-
-    res.setHeader(
-        'Access-Control-Allow-Methods',
-        'POST, OPTIONS'
-    );
-
-    res.setHeader(
-        'Access-Control-Allow-Headers',
-        'Content-Type'
-    );
-
-    res.setHeader(
-        'Vary',
-        'Origin'
-    );
-
-
-    // =================================================
-    // CORS PREFLIGHT
-    // =================================================
+    // ================================================
+    // OPTIONS / CORS PREFLIGHT
+    // ================================================
 
     if (req.method === 'OPTIONS') {
         return res.status(200).end();
     }
 
 
-    // =================================================
+    // ================================================
     // ONLY POST
-    // =================================================
+    // ================================================
 
     if (req.method !== 'POST') {
         return res.status(405).json({
@@ -73,22 +26,20 @@ module.exports = async (req, res) => {
 
     try {
 
-        // =================================================
+        // ================================================
         // CHECK STRIPE KEY
-        // =================================================
+        // ================================================
 
         if (!process.env.STRIPE_SECRET_KEY) {
-
             throw new Error(
                 'STRIPE_SECRET_KEY não está configurada no Vercel.'
             );
-
         }
 
 
-        // =================================================
-        // GET CART DATA
-        // =================================================
+        // ================================================
+        // GET DATA
+        // ================================================
 
         const {
             cart,
@@ -96,32 +47,28 @@ module.exports = async (req, res) => {
         } = req.body || {};
 
 
-        // =================================================
+        // ================================================
         // CHECK CART
-        // =================================================
+        // ================================================
 
         if (!Array.isArray(cart) || cart.length === 0) {
-
             return res.status(400).json({
                 error: 'Carrinho vazio.'
             });
-
         }
 
 
-        // =================================================
-        // CREATE STRIPE LINE ITEMS
-        // =================================================
+        // ================================================
+        // CREATE LINE ITEMS
+        // ================================================
 
         const lineItems = cart.map((item) => {
 
             const title =
                 String(item.title || '').trim();
 
-
             const price =
                 Number(item.price);
-
 
             const quantity =
                 Math.max(
@@ -130,45 +77,22 @@ module.exports = async (req, res) => {
                 );
 
 
-            // ---------------------------------------------
-            // VALIDATE PRODUCT
-            // ---------------------------------------------
-
             if (!title) {
-
                 throw new Error(
                     'Produto sem título.'
                 );
-
             }
 
 
-            if (!Number.isFinite(price)) {
-
+            if (!Number.isFinite(price) || price <= 0) {
                 throw new Error(
-                    `Preço inválido para o produto: ${title}`
+                    `Preço inválido para: ${title}`
                 );
-
             }
 
-
-            if (price <= 0) {
-
-                throw new Error(
-                    `Preço inválido para o produto: ${title}`
-                );
-
-            }
-
-
-            // ---------------------------------------------
-            // RETURN STRIPE LINE ITEM
-            // ---------------------------------------------
 
             return {
-
                 price_data: {
-
                     currency: 'eur',
 
                     product_data: {
@@ -177,72 +101,52 @@ module.exports = async (req, res) => {
 
                     unit_amount:
                         Math.round(price * 100)
-
                 },
 
                 quantity: quantity
-
             };
 
         });
 
 
-        // =================================================
+        // ================================================
         // COUPONS
-        // =================================================
+        // ================================================
 
         let discounts = [];
 
-
-        // -------------------------------------------------
-        // WELCOME10
-        // -------------------------------------------------
 
         if (coupon === 'WELCOME10') {
 
             const stripeCoupon =
                 await stripe.coupons.create({
-
                     percent_off: 10,
-
                     duration: 'once'
-
                 });
-
 
             discounts.push({
                 coupon: stripeCoupon.id
             });
-
         }
 
-
-        // -------------------------------------------------
-        // SAVE70
-        // -------------------------------------------------
 
         if (coupon === 'SAVE70') {
 
             const stripeCoupon =
                 await stripe.coupons.create({
-
                     percent_off: 70,
-
                     duration: 'once'
-
                 });
-
 
             discounts.push({
                 coupon: stripeCoupon.id
             });
-
         }
 
 
-        // =================================================
-        // CREATE STRIPE CHECKOUT SESSION
-        // =================================================
+        // ================================================
+        // CREATE STRIPE CHECKOUT
+        // ================================================
 
         const session =
             await stripe.checkout.sessions.create({
@@ -261,30 +165,23 @@ module.exports = async (req, res) => {
                     'required',
 
                 success_url:
-                    'https://digityone1.vercel.app/success.html',
+                    'https://digityone1.github.io/shop/success.html',
 
                 cancel_url:
-                    'https://digityone1.vercel.app/cart.html'
-
+                    'https://digityone1.github.io/shop/cart.html'
             });
 
 
-        // =================================================
+        // ================================================
         // RETURN CHECKOUT URL
-        // =================================================
+        // ================================================
 
         return res.status(200).json({
-
             url: session.url
-
         });
 
 
     } catch (error) {
-
-        // =================================================
-        // ERROR
-        // =================================================
 
         console.error(
             'Stripe Checkout Error:',
@@ -299,15 +196,10 @@ module.exports = async (req, res) => {
                 'Erro desconhecido no Stripe.',
 
             type:
-                error.type ||
-                null,
+                error.type || null,
 
             code:
-                error.code ||
-                null
-
+                error.code || null
         });
-
     }
-
 };
