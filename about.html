@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Digityone</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #about-head {
+            display: flex;
+            align-items: center;
+        }
+        #about-head img {
+            width: 50%;
+            height: auto;
+        }
+        #about-head div {
+            width: 50%;
+            padding-left: 40px;
+        }
+        #about-head marquee {
+            background-color: #ccc;
+            width: 100%;
+            margin-top: 20px;
+        }
+        #about-app {
+            text-align: center;
+        }
+        #about-app .video {
+            width: 70%;
+            height: 100%;
+            margin: 30px auto 0 auto;
+        }
+        #about-app .video video {
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+        }
+        @media (max-width:799px) {
+            #about-head {
+                flex-direction: column;
+            }
+            #about-head img {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            #about-head div {
+                width: 100%;
+                padding-left: 0;
+            }
+            #about-app .video {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+    <div>
+      <ul id="navbar">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="shop.html">Loja</a></li>
+          <li><a href="blog.html">Blogue</a></li>
+          <li><a class="active" href="about.html">Sobre Nós</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+          <li id="lg-bag"><a href="cart.html" class="badge-container"><i class="far fa-shopping-bag"></i><span class="cart-badge" style="display: none;">0</span></a></li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html" class="badge-container"><i class="far fa-shopping-bag"></i><span class="cart-badge" style="display: none;">0</span></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+
+<section id="page-header" style="background-image: url('img/about/banner.png'); background-color: #041e42;">
+    <h2>#conhecanos</h2>
+    <p>Conheça a nossa história e destaques de desenvolvimento!</p>
+</section>
+
+<section id="about-head" class="section-p1">
+    <img src="img/about/a6.jpg" alt="" onerror="this.src='img/banner/b17.jpg'">
+    <div>
+        <h2>Quem Somos?</h2>
+        <p>A Digityone é uma plataforma de comércio online fundada com a visão de oferecer vestuário e acessórios modernos de alta qualidade. Combinamos o corte clássico com as tendências atuais para proporcionar moda confortável e duradoura para o seu dia a dia.</p>
+        <abbr title="">Selecionamos cada peça com um rigoroso controlo de qualidade. Desde a escolha do fio até aos acabamentos das costuras, garantimos que as suas compras resistem ao tempo.</abbr>
+        <br><br>
+        <marquee loop="-1" scrollamount="5" width="100%">Estilo e conforto em cada tecido. Digityone 2026.</marquee>
+    </div>
+</section>
+
+<section id="about-app" class="section-p1">
+    <h1>A Nossa Aplicação e Presença Criativa</h1>
+    <div class="video">
+        <!-- Placeholder visual using styled div / text as we don't have a local video file -->
+        <div style="background: linear-gradient(135deg, #088178 0%, #041e42 100%); color: white; padding: 80px 40px; border-radius: 20px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.15)">
+            <i class="fas fa-play-circle" style="font-size: 60px; margin-bottom: 20px;"></i>
+            <h3>Demonstração da Aplicação Móvel Brevemente</h3>
+            <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 15px auto 0 auto;">Estamos a desenvolver a nossa nova aplicação Android e iOS para oferecer promoções exclusivas, rastreio de encomendas e ajuda de tamanhos.</p>
+        </div>
+    </div>
+</section>
+
+<section id="feature" class="section-p1">
+    <div class="fe-box">
+        <img src="img/features/f1.png" alt="">
+        <h6>Envio Grátis</h6>
+    </div>
+    <div class="fe-box">
+        <img src="img/features/f2.png" alt="">
+        <h6>Encomenda Online</h6>
+    </div>
+    <div class="fe-box">
+        <img src="img/features/f3.png" alt="">
+        <h6>Poupe Dinheiro</h6>
+    </div>
+    <div class="fe-box">
+        <img src="img/features/f4.png" alt="">
+        <h6>Promoções</h6>
+    </div>
+    <div class="fe-box">
+        <img src="img/features/f5.png" alt="">
+        <h6>Venda Feliz</h6>
+    </div>
+    <div class="fe-box">
+        <img src="img/features/f6.png" alt="">
+        <h6>Suporte 24/7</h6>
+    </div>
+</section>
+
+<section id="newsletters" class="section-p1 section-m1">
+    <div>
+      <h4>Subscreva a nossa Newsletter</h4>
+      <p>Receba novidades e <span>ofertas especiais</span> por e-mail</p>
+  </div>
+  <div class="form">
+    <input type="text" placeholder="O seu endereço de e-mail">
+    <button class="normal">Subscrever</button>
+  </div>
+</section>
+
+<footer class="section-p1">
+<div class="col">
+    <img class="logo" src="img/logo.png" alt="">
+    <h4>Contacto</h4>
+    <p><strong>Morada:</strong> Rua Eng Pimentel n8 Tenoes Braga</p>
+    <p><strong>Telefone:</strong> +351 910342543</p>
+    <p><strong>Horário:</strong> 10:00 - 18:00, Seg-Sáb</p>
+    <div class="follow">
+        <h4>Siga-nos</h4>
+        <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+    </div>
+</div>
+<div class="col">
+    <h4>Sobre</h4>
+    <a href="#">Sobre nós</a>
+    <a href="#">Informações de Envio</a>
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Termos e Condições</a>
+    <a href="#">Contacte-nos</a>
+</div>
+<div class="col">
+    <h4>A Minha Conta</h4>
+    <a href="#">Iniciar Sessão</a>
+    <a href="#">Ver Carrinho</a>
+    <a href="#">Lista de Desejos</a>
+    <a href="#">Acompanhar Encomenda</a>
+    <a href="#">Ajuda</a>
+</div>
+<div class="col install">
+    <h4>Instalar Aplicação</h4>
+    <p>Na App Store ou Google Play</p>
+    <div class="row">
+        <img src="img/pay/app.jpg" alt="">
+        <img src="img/pay/play.jpg" alt="">
+    </div>
+    <p>Métodos de Pagamento Seguros</p>
+    <img src="img/pay/pay.png" alt="">
+</div>
+<div class="copyright">
+    <p>© 2025, Digityone Website & Loja Online</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

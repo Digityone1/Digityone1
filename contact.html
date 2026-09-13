@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Digityone</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #contact-details {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        #contact-details .details {
+            width: 40%;
+        }
+        #contact-details .details span,
+        #form-details form span {
+            font-size: 12px;
+            color: #465b52;
+        }
+        #contact-details .details h2,
+        #form-details form h2 {
+            font-size: 26px;
+            line-height: 35px;
+            padding: 20px 0;
+            color: #222;
+        }
+        #contact-details .details h3 {
+            font-size: 16px;
+            padding-bottom: 15px;
+        }
+        #contact-details .details li {
+            list-style: none;
+            display: flex;
+            padding: 10px 0;
+        }
+        #contact-details .details li i {
+            font-size: 14px;
+            padding-right: 22px;
+        }
+        #contact-details .details li p {
+            margin: 0;
+            font-size: 14px;
+        }
+        #contact-details .map {
+            width: 55%;
+            height: 400px;
+        }
+        #contact-details .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        #form-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px;
+            padding: 80px;
+            border: 1px solid #e2e9e1;
+        }
+        #form-details form {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        #form-details form input,
+        #form-details form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            outline: none;
+            margin-bottom: 20px;
+            border: 1px solid #e2e9e1;
+        }
+        #form-details form button {
+            background-color: #088178;
+            color: #fff;
+            padding: 12px 30px;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        #form-details .people div {
+            padding-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+        }
+        #form-details .people div img {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+        #form-details .people div p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 25px;
+        }
+        #form-details .people div p span {
+            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: #000;
+        }
+        @media (max-width:799px) {
+            #contact-details {
+                flex-direction: column;
+            }
+            #contact-details .details {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            #contact-details .map {
+                width: 100%;
+            }
+            #form-details {
+                flex-direction: column;
+                padding: 40px;
+            }
+            #form-details form {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+<section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+    <div>
+      <ul id="navbar">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="shop.html">Loja</a></li>
+          <li><a href="blog.html">Blogue</a></li>
+          <li><a href="about.html">Sobre Nós</a></li>
+          <li><a class="active" href="contact.html">Contacto</a></li>
+          <li id="lg-bag"><a href="cart.html" class="badge-container"><i class="far fa-shopping-bag"></i><span class="cart-badge" style="display: none;">0</span></a></li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+        <a href="cart.html" class="badge-container"><i class="far fa-shopping-bag"></i><span class="cart-badge" style="display: none;">0</span></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+
+<section id="page-header" style="background-image: url('img/about/banner.png'); background-color: #041e42;">
+    <h2>#fale_connosco</h2>
+    <p>Deixe uma mensagem, adoramos receber o seu contacto!</p>
+</section>
+
+<section id="contact-details" class="section-p1">
+    <div class="details">
+        <span>ENTRE EM CONTACTO</span>
+        <h2>Visite uma das nossas instalações ou contacte-nos hoje</h2>
+        <h3>Sede Principal</h3>
+        <div>
+            <li>
+                <i class="fal fa-map"></i>
+                <p>Rua Eng Pimentel n8 Tenoes, Braga, Portugal</p>
+            </li>
+            <li>
+                <i class="fal fa-envelope"></i>
+                <p>tiagosantos879@gmail.com</p>
+            </li>
+            <li>
+                <i class="fal fa-phone-alt"></i>
+                <p>+351 910 342 543</p>
+            </li>
+            <li>
+                <i class="fal fa-clock"></i>
+                <p>Segunda a Sábado: 10:00 às 18:00</p>
+            </li>
+        </div>
+    </div>
+    <div class="map">
+        <!-- OpenStreetMap embed for Braga, Portugal -->
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-8.4116%2C41.5492%2C-8.3892%2C41.5601&amp;layer=mapnik&amp;marker=41.5546%2C-8.4004" style="border: 1px solid black"></iframe>
+    </div>
+</section>
+
+<section id="form-details">
+    <form action="">
+        <span>DEIXE UMA MENSAGEM</span>
+        <h2>Adoramos saber de si</h2>
+        <input type="text" placeholder="O seu Nome" required>
+        <input type="email" placeholder="E-mail" required>
+        <input type="text" placeholder="Assunto" required>
+        <textarea name="" id="" cols="30" rows="10" placeholder="A sua Mensagem" required></textarea>
+        <button class="normal">Enviar</button>
+    </form>
+    <div class="people">
+        <div>
+            <!-- Visual representation of support team -->
+            <div style="background-color: #088178; width: 65px; height: 65px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; margin-right: 15px;">JS</div>
+            <p><span>Tiago Santos</span> Gestor Sénior de Marketing <br> Telefone: +351 910 342 543 <br> Email: tiagosantos879@gmail.com</p>
+        </div>
+        <div>
+           
+        </div>
+    </div>
+</section>
+
+<section id="newsletters" class="section-p1 section-m1">
+    <div>
+      <h4>Subscreva a nossa Newsletter</h4>
+      <p>Receba novidades e <span>ofertas especiais</span> por e-mail</p>
+  </div>
+  <div class="form">
+    <input type="text" placeholder="O seu endereço de e-mail">
+    <button class="normal">Subscrever</button>
+  </div>
+</section>
+
+<footer class="section-p1">
+<div class="col">
+    <img class="logo" src="img/logo.png" alt="">
+    <h4>Contacto</h4>
+    <p><strong>Morada:</strong> Rua Eng Pimentel n8 Tenoes Braga</p>
+    <p><strong>Telefone:</strong> +351 910342543</p>
+    <p><strong>Horário:</strong> 10:00 - 18:00, Seg-Sáb</p>
+    <div class="follow">
+        <h4>Siga-nos</h4>
+        <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+    </div>
+</div>
+<div class="col">
+    <h4>Sobre</h4>
+    <a href="#">Sobre nós</a>
+    <a href="#">Informações de Envio</a>
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Termos e Condições</a>
+    <a href="#">Contacte-nos</a>
+</div>
+<div class="col">
+    <h4>A Minha Conta</h4>
+    <a href="#">Iniciar Sessão</a>
+    <a href="#">Ver Carrinho</a>
+    <a href="#">Lista de Desejos</a>
+    <a href="#">Acompanhar Encomenda</a>
+    <a href="#">Ajuda</a>
+</div>
+<div class="col install">
+    <h4>Instalar Aplicação</h4>
+    <p>Na App Store ou Google Play</p>
+    <div class="row">
+        <img src="img/pay/app.jpg" alt="">
+        <img src="img/pay/play.jpg" alt="">
+    </div>
+    <p>Métodos de Pagamento Seguros</p>
+    <img src="img/pay/pay.png" alt="">
+</div>
+<div class="copyright">
+    <p>© 2025, Digityone Website & Loja Online</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

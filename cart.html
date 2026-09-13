@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Digityone</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="header">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt=""></a>
+    <div>
+      <ul id="navbar">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="shop.html">Loja</a></li>
+          <li><a href="blog.html">Blogue</a></li>
+          <li><a href="about.html">Sobre Nós</a></li>
+          <li><a href="contact.html">Contacto</a></li>
+          <li id="lg-bag"><a class="active badge-container" href="cart.html"><i class="far fa-shopping-bag"></i><span class="cart-badge" style="display: none;">0</span></a></li>
+          <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+    </div>
+    <div id="mobile">
+        <a class="active badge-container" href="cart.html"><i class="far fa-shopping-bag"></i><span class="cart-badge" style="display: none;">0</span></a>
+        <i id="bar" class="fas fa-outdent"></i>
+    </div>
+</section>
+
+<section id="page-header" style="background-image: url('img/about/banner.png'); background-color: #041e42;">
+    <h2>#carrinho</h2>
+    <p>Adicione o seu cupão e POUPA até 70%!</p>
+</section>
+
+<section id="cart" class="section-p1">
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Remover</td>
+                <td>Imagem</td>
+                <td>Produto</td>
+                <td>Preço</td>
+                <td>Quantidade</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+        <tbody id="cart-items">
+            <!-- Dynamically populated by JS -->
+            <tr>
+                <td colspan="6" style="text-align: center; padding: 40px; color: #465b52;">O seu carrinho está vazio. <a href="shop.html" style="color: #088178; font-weight: 700; text-decoration: none;">Comprar Agora</a></td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="cart-add" class="section-p1">
+    <div id="coupon">
+        <h3>Aplicar Cupão</h3>
+        <div>
+            <input type="text" id="coupon-code" placeholder="Insira o seu Cupão">
+            <button class="normal" id="apply-coupon-btn">Aplicar</button>
+        </div>
+        <div id="coupon-status" style="margin-top: 10px; font-weight: 600; font-size: 13px;"></div>
+    </div>
+    <div id="subtotal">
+        <h3>Total do Carrinho</h3>
+        <table>
+            <tr>
+                <td>Subtotal do Carrinho</td>
+                <td id="cart-subtotal">€0.00</td>
+            </tr>
+            <tr>
+                <td>Envio</td>
+                <td>Grátis</td>
+            </tr>
+            <tr id="discount-row" style="display: none;">
+                <td>Desconto do Cupão (<span id="coupon-name"></span>)</td>
+                <td id="coupon-discount" style="color: #ef3636;">-€0.00</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td id="cart-total"><strong>€0.00</strong></td>
+            </tr>
+        </table>
+        <button class="normal" id="checkout-btn">Finalizar Compra</button>
+    </div>
+</section>
+
+<footer class="section-p1">
+<div class="col">
+    <img class="logo" src="img/logo.png" alt="">
+    <h4>Contacto</h4>
+    <p><strong>Morada:</strong> Rua Eng Pimentel n8 Tenoes Braga</p>
+    <p><strong>Telefone:</strong> +351 910342543</p>
+    <p><strong>Horário:</strong> 10:00 - 18:00, Seg-Sáb</p>
+    <div class="follow">
+        <h4>Siga-nos</h4>
+        <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+    </div>
+</div>
+<div class="col">
+    <h4>Sobre</h4>
+    <a href="#">Sobre nós</a>
+    <a href="#">Informações de Envio</a>
+    <a href="#">Política de Privacidade</a>
+    <a href="#">Termos e Condições</a>
+    <a href="#">Contacte-nos</a>
+</div>
+<div class="col">
+    <h4>A Minha Conta</h4>
+    <a href="#">Iniciar Sessão</a>
+    <a href="#">Ver Carrinho</a>
+    <a href="#">Lista de Desejos</a>
+    <a href="#">Acompanhar Encomenda</a>
+    <a href="#">Ajuda</a>
+</div>
+<div class="col install">
+    <h4>Instalar Aplicação</h4>
+    <p>Na App Store ou Google Play</p>
+    <div class="row">
+        <img src="img/pay/app.jpg" alt="">
+        <img src="img/pay/play.jpg" alt="">
+    </div>
+    <p>Métodos de Pagamento Seguros</p>
+    <img src="img/pay/pay.png" alt="">
+</div>
+<div class="copyright">
+    <p>© 2025, Digityone Website & Loja Online</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
