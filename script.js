@@ -546,28 +546,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     try {
 
-                        const response =
-                            await fetch(
-                            'https://ibkube-stripe-ten.vercel.app/api/create-checkout-session',
-                                {
-                                    method: 'POST',
-
-                                    headers: {
-                                        'Content-Type':
-                                            'application/json'
-                                    },
-
-                                    body: JSON.stringify({
-                                        cart: cart,
-
-                                        coupon:
-                                            coupon
-                                                ? coupon.code
-                                                : null
-                                    })
-                                }
-                            );
-
+                        const response = await fetch(
+    'https://ibkube-stripe-ten.vercel.app/api/create-checkout-session',
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart,
+            coupon: coupon ? coupon.code : null
+        })
+    }
+);
 
                         const data =
                             await response.json();
